@@ -2,13 +2,15 @@
 Print a multiplication table of N prime numbers.
 The first row and column of the table should have the N primes, with each cell containing the product of the primes for the corresponding row and column.
 
-Steps to setup:
-1. Install JDK 8
+##Steps to setup:
 
-Steps to run:
-Windows: gradlew.bat run -Pappargs=<number of prime numbers to be generated>
+Install JDK 8
 
-Unix: ./gradlew run -Pappargs=<number of prime numbers to be generated>
+##Steps to run:
+
+Windows: gradlew.bat run -Pappargs=[number of prime numbers to be generated]
+
+Unix: ./gradlew run -Pappargs=[number of prime numbers to be generated]
 
 Omitting the -Pappargs switch will generate 10 prime numbers.
 
