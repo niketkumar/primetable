@@ -11,9 +11,6 @@ import static niket.fc.table.MultiplicationTableImpl.NewLine;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-/**
- * Created by nbhumihar on 7/14/16.
- */
 public class MultiplicationTableImplTest {
 
     @Test
@@ -100,8 +97,8 @@ public class MultiplicationTableImplTest {
 
         multiplicationTable.printDataRow(3);
         assertEquals(format("   1    1    2    555    1234 %s" +
-                "   2    2    4   1110    2468 %s" +
-                "1234 1234 2468 684870 1522756 %s",
+                        "   2    2    4   1110    2468 %s" +
+                        "1234 1234 2468 684870 1522756 %s",
                 NewLine, NewLine, NewLine), new String(byteArrayOutputStream.toByteArray()));
     }
 

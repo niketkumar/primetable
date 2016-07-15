@@ -5,10 +5,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by nbhumihar on 7/14/16.
+ * Prints Multiplication table for the given data array.
  */
 class MultiplicationTableImpl implements MultiplicationTable {
-    public static final String NewLine = System.getProperty("line.separator");
+    static final String NewLine = System.getProperty("line.separator");
+    private static final int HEADER_COLUMN_INDEX = -1;//-1 stands for the header/first column
     private final long[] data;
     private final PrintStream printStream;
     private final Map<Integer, Integer> columnWidths;
@@ -34,7 +35,7 @@ class MultiplicationTableImpl implements MultiplicationTable {
     }
 
     Map<Integer, Integer> calculateColumnWidths() {
-        columnWidths.put(-1, numberOfDigits(lastNumber()));
+        columnWidths.put(HEADER_COLUMN_INDEX, numberOfDigits(lastNumber()));
         for (int i = 0; i < data.length; i++)
             columnWidths.put(i, numberOfDigits(multiply(i, data.length - 1)));
         return columnWidths;
@@ -49,19 +50,25 @@ class MultiplicationTableImpl implements MultiplicationTable {
     }
 
     void printHeaderRow() {
-        printStream.printf(columnFormat(-1), " ");
+        printStream.printf(columnFormat(HEADER_COLUMN_INDEX), " ");
         for (int colIndex = 0; colIndex < data.length; colIndex++) {
             printStream.printf(columnFormat(colIndex), data[colIndex]);
         }
         printStream.println();
     }
 
+    /**
+     * This format helps to pad the cell number to fit the column width.
+     *
+     * @param columnIndex
+     * @return
+     */
     String columnFormat(int columnIndex) {
         return "%" + columnWidths.get(columnIndex) + "s ";
     }
 
     void printDataRow(int rowIndex) {
-        printStream.printf(columnFormat(-1), data[rowIndex]);
+        printStream.printf(columnFormat(HEADER_COLUMN_INDEX), data[rowIndex]);
         for (int colIndex = 0; colIndex < data.length; colIndex++) {
             printStream.printf(columnFormat(colIndex), multiply(rowIndex, colIndex));
         }

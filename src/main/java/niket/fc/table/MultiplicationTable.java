@@ -1,7 +1,9 @@
 package niket.fc.table;
 
 /**
- * Created by nbhumihar on 7/14/16.
+ * Prints Multiplication table for the given data set.
+ * The first row and column of the table should have the data elements,
+ * with each cell containing the product of the elements for the corresponding row and column.
  */
 public interface MultiplicationTable {
 

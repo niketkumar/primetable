@@ -1,9 +1,12 @@
 package niket.fc;
 
+import niket.fc.primes.Primes;
 import niket.fc.table.MultiplicationTable;
 
 /**
- * Created by nbhumihar on 7/14/16.
+ * Main class to provide multiplication table of N prime numbers.
+ *
+ * Expects an optional argument, defaults to 10.
  */
 public class Solution {
     public static void main(String[] args) throws MultiplicationTable.InvalidDataException {
@@ -30,9 +33,6 @@ public class Solution {
     }
 
     private static long[] generatePrimes(int n) {
-        long[] data = new long[n];
-        for (int i = 0; i < n; i++)
-            data[i] = i + 1;
-        return data;
+        return new Primes.Factory().create().generate(n);
     }
 }
